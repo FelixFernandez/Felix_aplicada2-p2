@@ -31,11 +31,5 @@ namespace BLL
             Cantidad = cantidad;
             Precio = precio;
         }
-
-        public VentasDetalle(int cantidad, float precio)
-        {
-            Cantidad = cantidad;
-            Precio = precio;
-        }
     }
 }

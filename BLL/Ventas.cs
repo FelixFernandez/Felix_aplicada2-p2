@@ -34,7 +34,7 @@ namespace BLL
 
                 foreach(VentasDetalle item in Tipo)
                 {
-                    conexion.Ejecutar(string.Format("insert into VentasDetalles(Id, VentaId, ArticuloId, Cantidad, Precio) Values('"+ventasdetalle.Cantidad+"','"+ventasdetalle.Precio+ "') ", retorno,(int)item.Cantidad,(float)item.Precio));
+                    conexion.Ejecutar(string.Format("insert into VentasDetalles(Id, VentaId, ArticuloId, Cantidad, Precio) Values('"+ventasdetalle.Id+"','"+ventasdetalle.VentaId+"','" +ventasdetalle.ArticuloId+"','"+ventasdetalle.Cantidad+"','"+ventasdetalle.Precio+ "') ", retorno,(int)item.Id,(int)item.VentaId,(int)item.ArticuloId,(int)item.Cantidad,(float)item.Precio));
                 }
             }
             catch(Exception e)
@@ -45,9 +45,9 @@ namespace BLL
             
         }
 
-        public void AgregarVentasDetalle(int cantidad, float precio)
+        public void AgregarVentasDetalle(int id, int ventaId, int articuloId, int cantidad, float precio)
         {
-            Tipo.Add(new VentasDetalle(cantidad,precio));
+            Tipo.Add(new VentasDetalle(id, ventaId, articuloId, cantidad,precio));
         }
 
 

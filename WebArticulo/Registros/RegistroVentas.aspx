@@ -9,22 +9,44 @@
     <h1>Registro de Ventas</h1>
     <div>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
             VentaId: <asp:TextBox ID="VentaIdTextBox" runat="server" TextMode="Number"></asp:TextBox>
-        &nbsp;<asp:Button ID="BuscarButton" runat="server" Text="Buscar" />
+            <asp:Button ID="BuscarButton" runat="server" Text="Buscar" />
         </p>
         <p>
-            Fecha:&nbsp;&nbsp; 
+            Fecha: 
             <asp:TextBox ID="FechaTextBox" runat="server" TextMode="Date"></asp:TextBox>
         </p>
     </div>
 
+        <div>
+            <p>
+            Descripcion:
+            <asp:TextBox ID="DescripcionTextBox" runat="server" TextMode="MultiLine"></asp:TextBox>
+            </p>
+        </div>
+
+        <div>
+            <p>
+            Existencia:
+            <asp:TextBox ID="ExistenciaTextBox" runat="server"></asp:TextBox>
+            </p>
+        </div>
+
     <div>
         <p>
-            &nbsp;&nbsp;
-            Monto:&nbsp;&nbsp; <asp:TextBox ID="MontoTextBox" runat="server" ></asp:TextBox>
+           
+        Precio: <asp:TextBox ID="PrecioTextBox" runat="server"></asp:TextBox>
+        Cantidad:<asp:TextBox ID="CantidadTextBox" runat="server"></asp:TextBox>
+        <asp:Button ID="AgregarButton" runat="server" Text="Agregar" OnClick="AgregarButton_Click" />
         </p>
     </div>
+
+        <div>
+            <p>
+            Monto:<asp:TextBox ID="MontoTextBox" runat="server" ></asp:TextBox>
+                </p>
+        </div>
 
     <div>
 
@@ -35,5 +57,12 @@
         <asp:Button ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click1" CssClass="btn-danger" />
 
     </div>
+        
+        <div>
+            <p>
+            <asp:GridView ID="VentasDetalleGridView" runat="server">
+            </asp:GridView>
+                </p>
+        </div>
         </center>
 </asp:Content>

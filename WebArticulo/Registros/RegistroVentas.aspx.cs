@@ -68,5 +68,27 @@ namespace WebArticulo.Registros
                 Response.Write("no se elimino");
             }
         }
+
+        protected void AgregarButton_Click(object sender, EventArgs e)
+        {
+            Ventas ventas;
+
+            if (Session["Ventas"] == null)
+                Session["Ventas"] = new Ventas();
+            ventas = (Ventas)Session["Ventas"];
+
+            VentasDetalle ventasdestalle = new VentasDetalle();
+
+            ventasdestalle.VentaId = int.Parse(VentaIdTextBox.Text);
+            ventasdestalle.Cantidad = int.Parse(CantidadTextBox.Text);
+            ventasdestalle.Precio = float.Parse(PrecioTextBox.Text);
+
+            ventas.AgregarVentasDetalle(ventasdestalle.Id, ventasdestalle.VentaId, ventasdestalle.ArticuloId, ventasdestalle.Cantidad, ventasdestalle.Precio);
+
+            Session["Ventas"] = ventas;
+
+            VentasDetalleGridView.DataSource = ventas.Tipo;
+            VentasDetalleGridView.DataBind();
+        }
     }
 }
