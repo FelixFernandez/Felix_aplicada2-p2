@@ -1,0 +1,10 @@
+D:\WebArticulo\WebArticulo\bin\WebArticulo.dll.config
+D:\WebArticulo\WebArticulo\bin\WebArticulo.dll
+D:\WebArticulo\WebArticulo\bin\WebArticulo.pdb
+D:\WebArticulo\WebArticulo\bin\BLL.dll
+D:\WebArticulo\WebArticulo\bin\DAL.dll
+D:\WebArticulo\WebArticulo\bin\BLL.pdb
+D:\WebArticulo\WebArticulo\bin\DAL.pdb
+D:\WebArticulo\WebArticulo\obj\Debug\WebArticulo.csprojResolveAssemblyReference.cache
+D:\WebArticulo\WebArticulo\obj\Debug\WebArticulo.dll
+D:\WebArticulo\WebArticulo\obj\Debug\WebArticulo.pdb
