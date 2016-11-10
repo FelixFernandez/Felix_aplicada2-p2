@@ -13,6 +13,7 @@ namespace BLL
         public string Fecha { get; set; }
         public float Monto { get; set; }
         
+        
         public Ventas()
         {
             this.VentaId = 0;

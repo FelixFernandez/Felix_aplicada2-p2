@@ -28,11 +28,11 @@
 
     <div>
 
-        <asp:Button ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click1"  />
+        <asp:Button ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click1" CssClass="btn-primary"  />
         &nbsp;&nbsp;
-        <asp:Button ID="ModificarButton" runat="server" Text="Modificar" OnClick="ModificarButton_Click1"  />
+        <asp:Button ID="ModificarButton" runat="server" Text="Modificar" OnClick="ModificarButton_Click1" CssClass="btn-success" />
         &nbsp;&nbsp;
-        <asp:Button ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click1" />
+        <asp:Button ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click1" CssClass="btn-danger" />
 
     </div>
         </center>

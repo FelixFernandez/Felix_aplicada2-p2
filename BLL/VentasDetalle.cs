@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class VentasDetalle : ClaseMaestra
+    public class VentasDetalle
     {
         public int Id { get; set; }
         public int VentaId { get; set; }
@@ -23,29 +23,14 @@ namespace BLL
             this.Precio = 0f;
         }
 
-        public override bool Insertar()
+        public VentasDetalle(int id, int ventaid, int articuloid, int cantidad, float precio)
         {
-            throw new NotImplementedException();
+            Id = id;
+            VentaId = ventaid;
+            ArticuloId = articuloid;
+            Cantidad = cantidad;
+            Precio = precio;
         }
 
-        public override bool Editar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Eliminar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Buscar(int IdBuscado)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DataTable Listado(string Campos, string Condicion, string Orden)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
