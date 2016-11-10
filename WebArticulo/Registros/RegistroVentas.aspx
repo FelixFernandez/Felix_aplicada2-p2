@@ -6,7 +6,9 @@
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <center>
-    <h1>Registro de Ventas</h1>
+        <p>
+    <asp:Panel runat="server" class="panel-heading" CssClass="panel-heading" BackColor="#3399FF"><h1><stronge>Registro de Venta</stronge></h1></asp:Panel>
+            </p>
     <div>
         <p>
             
