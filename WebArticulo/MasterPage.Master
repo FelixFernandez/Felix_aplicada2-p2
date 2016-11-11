@@ -14,9 +14,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
+  <!--  <nav class="navbar navbar-default">
   <div>
-      <a class="navbar-brand" href="#">Inicio</a>
+      
+      <a class="navbar-brand" href="/Default.aspx">Inicio</a>
+         
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -24,8 +26,14 @@
         <li><a href="/Registros/RegistroArticulo.aspx">Articulos <span class="sr-only">(current)</span></a></li>
         <li><a href="/Registros/RegistroVentas.aspx">Ventas</a></li>
     </div>
-</nav>
-
+</nav> -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav nav-tabs">
+            <li><a href="/Registros/Default.aspx" data-toggle="tab">Inicio</a></li>
+            <li><a href="/Registros/RegistroArticulo.aspx" data-toggle="tab">Articulos</a></li>            
+            <li><a href="/Registros/RegistroVentas.aspx" data-toggle="tab">Ventas</a></li>
+        </ul>
+    </div>
 
     <form id="form1" runat="server">
     <div>
@@ -33,12 +41,9 @@
         
         </asp:ContentPlaceHolder>
     </div>
-       
-        <footer class="page-header" style="background-color: #3399FF; height: 196px;">
-
-    </footer>
-       
+                              
     </form>
-    
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
 </body>
 </html>
