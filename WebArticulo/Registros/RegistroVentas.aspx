@@ -11,11 +11,9 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <container class="center-block">
-        <center>
-          <asp:Panel runat="server" class="panel-heading" CssClass="panel-heading" BackColor="#3399FF"><h1 class="auto-style1">Registro de Venta</h1></asp:Panel>
-        </center>
-            <label></label>
+    <fieldset class="panel-primary">
+
+      <center> <legend> <h1> Registro De Ventas</h1></legend></center>
        
          <div style="margin-left: 500px">
             
@@ -70,5 +68,5 @@
             </asp:GridView>
            
         </div>
-        </container>
+        </fieldset>
 </asp:Content>

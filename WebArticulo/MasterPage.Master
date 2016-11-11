@@ -9,13 +9,22 @@
     <script src="Scripts/jquery-1.9.1.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 
-      
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
 
+<body>
+    <nav class="navbar navbar-default">
+  <div>
+      <a class="navbar-brand" href="#">Inicio</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/Registros/RegistroArticulo.aspx">Articulos <span class="sr-only">(current)</span></a></li>
+        <li><a href="/Registros/RegistroVentas.aspx">Ventas</a></li>
+    </div>
+</nav>
 
 
     <form id="form1" runat="server">
@@ -25,11 +34,11 @@
         </asp:ContentPlaceHolder>
     </div>
        
-        
-       
-    </form>
-    <footer class="page-header" style="background-color: #3399FF; height: 192px;">
+        <footer class="page-header" style="background-color: #3399FF; height: 196px;">
 
     </footer>
+       
+    </form>
+    
 </body>
 </html>

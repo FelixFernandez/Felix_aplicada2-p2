@@ -63,6 +63,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Registros\RegistroArticulo.aspx" />
     <Content Include="Registros\RegistroVentas.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -89,6 +90,13 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\RegistroArticulo.aspx.cs">
+      <DependentUpon>RegistroArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistroArticulo.aspx.designer.cs">
+      <DependentUpon>RegistroArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\RegistroVentas.aspx.cs">
       <DependentUpon>RegistroVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

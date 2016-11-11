@@ -43,13 +43,13 @@ namespace WebArticulo.Registros
         {
             Ventas ventas = new Ventas();
             ventas.VentaId = int.Parse(VentaIdTextBox.Text);
-            ventas.Fecha = FechaTextBox.Text;
-            ventas.Monto = float.Parse(MontoTextBox.Text);
+            LLenarCampos(ventas);
 
             if (ventas.VentaId > 0)
             {
                 ventas.Insertar();
                 Response.Write("guardo");
+                Limpiar();
             }
             else
             {
@@ -69,6 +69,7 @@ namespace WebArticulo.Registros
             {
                 ventas.Eliminar();
                 Response.Write("se elimino");
+                Limpiar();
             }
             else
             {
