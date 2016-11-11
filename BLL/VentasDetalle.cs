@@ -23,11 +23,8 @@ namespace BLL
             this.Precio = 0f;
         }
 
-        public VentasDetalle(int id, int ventaid, int articuloid, int cantidad, float precio)
-        {
-            Id = id;
-            VentaId = ventaid;
-            ArticuloId = articuloid;
+        public VentasDetalle( int cantidad, float precio)
+        {       
             Cantidad = cantidad;
             Precio = precio;
         }

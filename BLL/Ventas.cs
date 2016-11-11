@@ -34,7 +34,7 @@ namespace BLL
 
                 foreach(VentasDetalle item in Tipo)
                 {
-                    conexion.Ejecutar(string.Format("insert into VentasDetalles(Id, VentaId, ArticuloId, Cantidad, Precio) Values('"+ventasdetalle.Id+"','"+ventasdetalle.VentaId+"','" +ventasdetalle.ArticuloId+"','"+ventasdetalle.Cantidad+"','"+ventasdetalle.Precio+ "') ", retorno,(int)item.Id,(int)item.VentaId,(int)item.ArticuloId,(int)item.Cantidad,(float)item.Precio));
+                    conexion.Ejecutar(string.Format("insert into VentasDetalles(Id, VentaId, ArticuloId, Cantidad, Precio) Values({1},{2},{3})", retorno,(int)item.Cantidad,(float)item.Precio));
                 }
             }
             catch(Exception e)
@@ -45,18 +45,36 @@ namespace BLL
             
         }
 
-        public void AgregarVentasDetalle(int id, int ventaId, int articuloId, int cantidad, float precio)
+        public void AgregarVentasDetalle(int cantidad, float precio)
         {
-            Tipo.Add(new VentasDetalle(id, ventaId, articuloId, cantidad,precio));
+            this.Tipo.Add(new VentasDetalle(cantidad,precio));
         }
 
 
-    
+
         public override bool Editar()
         {
             ConexionDb conexion = new ConexionDb();
             bool retorno;
-            retorno = conexion.Ejecutar(string.Format("update Ventas set VentaId, Fecha, Monto) Values('" + this.VentaId + "','" + this.Fecha + "','" + this.Monto + "where VentaId =" +this.VentaId));
+
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("update Ventas set Fecha'{0}', Monto={1}) where VentaId={2}", this.VentaId, this.Fecha, this.Monto, this.VentaId));
+
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("Delete from VentasDetalle where VentaId =" + this.VentaId.ToString()));
+
+                    foreach (VentasDetalle item in Tipo)
+                    {
+                        conexion.Ejecutar(string.Format("insert into VentasDetalles(Id, VentaId, ArticuloId, Cantidad, Precio) Values({1},{2},{3})", retorno,(int)item.Cantidad, (float)item.Precio));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             return retorno;
         }
 
@@ -80,13 +98,12 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos("select * from Ventas where VentaId = " + this.VentaId);
+                dt = conexion.ObtenerDatos("select * from Ventas where VentaId = " +IdBuscado);
                 if (dt.Rows.Count > 0)
                 {
                     VentaId = (int)dt.Rows[0]["VentaId"];
                     Fecha = dt.Rows[0]["Fecha"].ToString();
-                    Monto = (float)dt.Rows[0]["Monto"];
-
+                    Monto = (float)dt.Rows[0]["Monto"];               
                 }
             }
             catch (Exception ex)

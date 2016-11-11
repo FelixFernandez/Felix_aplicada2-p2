@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using System.Data;
 
 namespace WebArticulo.Registros
 {
@@ -15,12 +16,33 @@ namespace WebArticulo.Registros
 
         }
 
-       
+        private void LLenarCampos(Ventas ventas)
+        {
+            ventas.VentaId = int.Parse(VentaIdTextBox.Text);
+            ventas.Fecha = FechaTextBox.Text;
+            ventas.Monto = float.Parse(MontoTextBox.Text);
+        }
+
+        public void Limpiar()
+        {
+            VentaIdTextBox.Text = string.Empty;
+            FechaTextBox.Text = string.Empty;
+            MontoTextBox.Text = string.Empty;
+            PrecioTextBox.Text = string.Empty;
+            CantidadTextBox.Text = string.Empty;
+        }
+
+        private void MostrarCampos(Ventas ventas)
+        {
+            VentaIdTextBox.Text = ventas.VentaId.ToString();
+            FechaTextBox.Text = ventas.Fecha;
+            MontoTextBox.Text = ventas.Monto.ToString();
+        }
 
         protected void GuardarButton_Click1(object sender, EventArgs e)
         {
             Ventas ventas = new Ventas();
-            ventas.VentaId =int.Parse(VentaIdTextBox.Text);
+            ventas.VentaId = int.Parse(VentaIdTextBox.Text);
             ventas.Fecha = FechaTextBox.Text;
             ventas.Monto = float.Parse(MontoTextBox.Text);
 
@@ -35,27 +57,12 @@ namespace WebArticulo.Registros
             }
         }
 
-        protected void ModificarButton_Click1(object sender, EventArgs e)
-        {
-            Ventas ventas = new Ventas();
-            ventas.VentaId = Convert.ToInt32(VentaIdTextBox.Text);
-            
-
-            if (ventas.VentaId > 0)
-            {
-                ventas.Editar();
-                Response.Write("se modifico");
-            }
-            else
-            {
-                Response.Write("no se modifico");
-            }
-        }
+     
 
         protected void EliminarButton_Click1(object sender, EventArgs e)
         {
             Ventas ventas = new Ventas();
-            ventas.VentaId = Convert.ToInt32(VentaIdTextBox.Text);
+            ventas.VentaId = int.Parse(VentaIdTextBox.Text);
 
 
             if (ventas.VentaId > 0)
@@ -71,24 +78,49 @@ namespace WebArticulo.Registros
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
-            Ventas ventas;
+              Ventas ventas;
 
-            if (Session["Ventas"] == null)
-                Session["Ventas"] = new Ventas();
-            ventas = (Ventas)Session["Ventas"];
+              if (Session["Ventas"] == null)
+                  Session["Ventas"] = new Ventas();
+              ventas = (Ventas)Session["Ventas"];
 
-            VentasDetalle ventasdestalle = new VentasDetalle();
+              VentasDetalle ventasdetalle = new VentasDetalle();
+            
+              ventasdetalle.Cantidad = int.Parse(CantidadTextBox.Text);
+              ventasdetalle.Precio = float.Parse(PrecioTextBox.Text);
 
-            ventasdestalle.VentaId = int.Parse(VentaIdTextBox.Text);
-            ventasdestalle.Cantidad = int.Parse(CantidadTextBox.Text);
-            ventasdestalle.Precio = float.Parse(PrecioTextBox.Text);
+              ventas.AgregarVentasDetalle(ventasdetalle.Cantidad, ventasdetalle.Precio);
 
-            ventas.AgregarVentasDetalle(ventasdestalle.Id, ventasdestalle.VentaId, ventasdestalle.ArticuloId, ventasdestalle.Cantidad, ventasdestalle.Precio);
+              Session["Ventas"] = ventas;
 
-            Session["Ventas"] = ventas;
+              VentasDetalleGridView.DataSource = ventas.Tipo;
+              VentasDetalleGridView.DataBind();
+        }
 
-            VentasDetalleGridView.DataSource = ventas.Tipo;
-            VentasDetalleGridView.DataBind();
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Ventas ventas = new Ventas();
+
+
+            ventas.VentaId = int.Parse(VentaIdTextBox.Text);
+
+                if (ventas.VentaId > 0)
+                {
+                    ventas.Buscar(ventas.VentaId);
+                    MostrarCampos(ventas);
+                    Response.Write("Id  encontrado");
+            }
+                else
+                {
+                    Response.Write("Id no encontrado");
+                    Limpiar();
+                }
+            }
+
+        protected void NuevorButton_Click1(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
+
 }

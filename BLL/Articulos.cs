@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using DAL;
 
 namespace BLL
 {
-    public class Articulos
+    public class Articulos : ClaseMaestra
     {
         public int Articulo { get; set; }
         public string Descripcion { get; set; }
@@ -21,7 +22,31 @@ namespace BLL
             this.Precio = 0f;
         }
 
-      
+        public override bool Insertar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Editar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Eliminar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Buscar(int IdBuscado)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DataTable Listado(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            return conexion.ObtenerDatos(("select " + Campos + " from Articulos where " + Condicion + Orden));
+        }
     }
 
 }

@@ -40,24 +40,6 @@ namespace WebArticulo.Registros {
         protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
         
         /// <summary>
-        /// DescripcionTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
-        
-        /// <summary>
-        /// ExistenciaTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ExistenciaTextBox;
-        
-        /// <summary>
         /// PrecioTextBox control.
         /// </summary>
         /// <remarks>
@@ -103,13 +85,13 @@ namespace WebArticulo.Registros {
         protected global::System.Web.UI.WebControls.Button GuardarButton;
         
         /// <summary>
-        /// ModificarButton control.
+        /// NuevoButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ModificarButton;
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
         /// EliminarButton control.
